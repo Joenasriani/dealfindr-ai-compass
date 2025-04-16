@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -13,11 +12,11 @@ import {
 const faqItems = [
   {
     question: "How do alerts work?",
-    answer: "DealFindr allows you to set up personalized price alerts for any product. Simply find a product you're interested in, set your desired price, and we'll notify you by email or push notification when the price drops to or below your target. You can manage all your alerts from your account dashboard."
+    answer: "Direct Price Comparison allows you to set up personalized price alerts for any product. Simply find a product you're interested in, set your desired price, and we'll notify you by email or push notification when the price drops to or below your target. You can manage all your alerts from your account dashboard."
   },
   {
-    question: "Is DealFindr free?",
-    answer: "Yes, DealFindr is completely free to use! We make money through affiliate commissions when users make purchases through our links. This means we can provide our price comparison and tracking services at no cost to you while maintaining high-quality service."
+    question: "Is Direct Price Comparison free?",
+    answer: "Yes, Direct Price Comparison is completely free to use! We make money through affiliate commissions when users make purchases through our links. This means we can provide our price comparison and tracking services at no cost to you while maintaining high-quality service."
   },
   {
     question: "Do you take commissions?",

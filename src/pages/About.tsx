@@ -16,7 +16,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              About <span className="gradient-text">Compare Price Matrix</span>
+              About <span className="gradient-text">Direct Price Comparison</span>
             </h1>
             <p className="text-xl text-gray-700">
               My name is Joe Nasr, and I'm based in Dubai. Welcome to our platform—a comprehensive price comparison website covering global markets, with a particular emphasis on Chinese manufacturers. Here, you can effortlessly compare prices from around the world to find the best deals, ensuring you get the most affordable option every time.
@@ -31,13 +31,13 @@ const About = () => {
             <h2 className="text-3xl font-bold mb-8 text-center">Our Story</h2>
             <div className="prose prose-lg max-w-none">
               <p>
-                DealFindr AI was founded by Joe Nasr with a vision to revolutionize how people compare prices globally. Based in Dubai, we've built a platform that specializes in connecting buyers with manufacturers worldwide, particularly focusing on the Chinese market.
+                Direct Price Comparison was founded by Joe Nasr with a vision to revolutionize how people compare prices globally. Based in Dubai, we've built a platform that specializes in connecting buyers with manufacturers worldwide, particularly focusing on the Chinese market.
               </p>
               <p>
                 Using the latest advancements in artificial intelligence and machine learning, we built a platform that not only compares prices across hundreds of retailers but also understands user preferences, predicts price trends, and delivers personalized deal recommendations.
               </p>
               <p>
-                Today, DealFindr AI helps thousands of shoppers save money every day. Our technology continuously improves as more people use it, making the shopping experience better for everyone.
+                Today, Direct Price Comparison helps thousands of shoppers save money every day. Our technology continuously improves as more people use it, making the shopping experience better for everyone.
               </p>
             </div>
           </div>

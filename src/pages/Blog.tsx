@@ -72,7 +72,7 @@ const Blog = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              DealFindr <span className="gradient-text">Blog</span>
+              Direct Price Comparison <span className="gradient-text">Blog</span>
             </h1>
             <p className="text-xl text-gray-700 mb-8">
               Shopping guides, money-saving tips, and product recommendations from our experts.
