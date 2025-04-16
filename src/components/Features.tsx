@@ -48,8 +48,8 @@ const Features = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Smart Shopping,{' '}
-            <span className="gradient-text">Powered by AI</span>
+            Director Price Connect:{' '}
+            <span className="gradient-text">Smart Shopping</span>
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             DealFindr uses advanced AI to help you shop smarter, save money, and discover products that perfectly match your needs.
