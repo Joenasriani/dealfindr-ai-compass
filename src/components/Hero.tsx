@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Search, Bell, DollarSign } from 'lucide-react';
@@ -12,7 +11,7 @@ import {
 } from "@/components/ui/select"
 
 const Hero = () => {
-  const [selectedCurrency, setSelectedCurrency] = useState('CNY');
+  const [selectedCurrency, setSelectedCurrency] = useState('USD');
 
   const convertPrice = (price: number, currency: string) => {
     const rates = {
