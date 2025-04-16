@@ -20,9 +20,9 @@ const Index = () => {
         <Features />
         <HowItWorks />
         {user && (
-          <div className="bg-gray-50 py-12 text-center">
-            <h2 className="text-2xl font-bold mb-4">Welcome, {user.email}!</h2>
-            <p className="text-gray-600">You are now logged in to Direct Price Connect</p>
+          <div className="bg-gray-50 py-8 md:py-12 px-4 text-center">
+            <h2 className="text-xl md:text-2xl font-bold mb-2 md:mb-4">Welcome, {user.email}!</h2>
+            <p className="text-sm md:text-base text-gray-600">You are now logged in to Direct Price Connect</p>
           </div>
         )}
         <Partners />
