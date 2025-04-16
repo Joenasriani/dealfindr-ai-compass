@@ -18,6 +18,7 @@ import Privacy from "./pages/Privacy";
 import Cookies from "./pages/Cookies";
 import MobileApp from "./pages/MobileApp";
 import Extension from "./pages/Extension";
+import Careers from "./pages/Careers";  // Add this import
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => {
               <Route path="/cookies" element={<Cookies />} />
               <Route path="/mobile-app" element={<MobileApp />} />
               <Route path="/extension" element={<Extension />} />
+              <Route path="/careers" element={<Careers />} />  {/* Add this route */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
