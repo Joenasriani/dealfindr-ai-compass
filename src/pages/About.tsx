@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -15,7 +16,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              About <span className="gradient-text">DealFindr AI</span>
+              About <span className="gradient-text">ComparePricesEverywhere</span>
             </h1>
             <p className="text-xl text-gray-700">
               My name is Joe Nasr, and I'm based in Dubai. Welcome to our platform—a comprehensive price comparison website covering global markets, with a particular emphasis on Chinese manufacturers. Here, you can effortlessly compare prices from around the world to find the best deals, ensuring you get the most affordable option every time.

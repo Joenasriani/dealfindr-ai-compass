@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -17,9 +16,9 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold mb-4 gradient-text">DealFindr AI</h3>
+            <h3 className="text-xl font-bold mb-4 gradient-text">ComparePricesEverywhere</h3>
             <p className="text-gray-600 mb-4">
-              Your AI-powered shopping assistant to find the best deals online and save money on every purchase.
+              Your global price comparison platform to find the best deals online and save money on every purchase.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-500 hover:text-dealfindr-blue transition-colors">
@@ -125,7 +124,7 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            © 2023 DealFindr AI. All rights reserved.
+            © 2023 ComparePricesEverywhere. All rights reserved.
           </p>
           <div className="flex items-center text-gray-500 text-sm">
             <Shield className="h-4 w-4 mr-2" />
@@ -134,7 +133,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* GDPR Cookie Banner */}
       <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t p-4 z-50">
         <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
           <p className="text-sm text-gray-700 mb-4 sm:mb-0 sm:mr-4">
