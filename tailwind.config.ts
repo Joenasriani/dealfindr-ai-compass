@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -24,58 +23,48 @@ export default {
 		},
 		extend: {
 			colors: {
-				border: 'hsl(var(--border))',
-				input: 'hsl(var(--input))',
-				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
-				foreground: 'hsl(var(--foreground))',
+				border: 'hsl(0, 50%, 90%)',
+				input: 'hsl(0, 50%, 95%)',
+				ring: 'hsl(0, 100%, 50%)',
+				background: 'hsl(0, 0%, 100%)',
+				foreground: 'hsl(0, 50%, 20%)',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					DEFAULT: 'hsl(0, 100%, 50%)', // Bright Red
+					foreground: 'hsl(0, 0%, 100%)'
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					DEFAULT: 'hsl(10, 100%, 70%)', // Lighter Red (analogous)
+					foreground: 'hsl(0, 0%, 100%)'
 				},
 				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
+					DEFAULT: 'hsl(350, 100%, 50%)', // Slightly different red shade
+					foreground: 'hsl(0, 0%, 100%)'
 				},
 				muted: {
-					DEFAULT: 'hsl(var(--muted))',
-					foreground: 'hsl(var(--muted-foreground))'
+					DEFAULT: 'hsl(0, 20%, 95%)', // Light pinkish-white
+					foreground: 'hsl(0, 50%, 40%)'
 				},
 				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+					DEFAULT: 'hsl(20, 100%, 75%)', // Warm analogous red
+					foreground: 'hsl(0, 0%, 100%)'
 				},
 				popover: {
-					DEFAULT: 'hsl(var(--popover))',
-					foreground: 'hsl(var(--popover-foreground))'
+					DEFAULT: 'hsl(0, 0%, 100%)',
+					foreground: 'hsl(0, 50%, 20%)'
 				},
 				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
-				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+					DEFAULT: 'hsl(0, 0%, 100%)',
+					foreground: 'hsl(0, 50%, 20%)'
 				},
 				dealfindr: {
-					blue: '#1E88E5',
-					'blue-dark': '#1565C0',
-					'blue-light': '#64B5F6',
-					green: '#4CAF50',
-					'green-light': '#81C784',
-					'green-dark': '#2E7D32',
-					gray: '#F5F7FA',
-					'gray-dark': '#78909C',
+					blue: '#ea384c', // Replace blue with red
+					'blue-dark': '#c91b33', // Darker red variant
+					'blue-light': '#f05a5a', // Lighter red variant
+					green: '#ea384c', // Green also replaced with red
+					'green-light': '#f05a5a',
+					'green-dark': '#c91b33',
+					gray: '#fff4f4', // Very light pinkish-white
+					'gray-dark': '#8c2b2b',
 				}
 			},
 			borderRadius: {

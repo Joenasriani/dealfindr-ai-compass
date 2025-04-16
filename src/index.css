@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -97,7 +96,7 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-dealfindr-blue to-dealfindr-green bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#ea384c] to-[#f05a5a] bg-clip-text text-transparent;
   }
 
   .hover-scale {
