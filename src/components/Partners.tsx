@@ -1,8 +1,18 @@
+
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { AlertCircle } from 'lucide-react';
 
 const Partners = () => {
+  const manufacturerImages = [
+    { name: 'Alibaba', image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625' },
+    { name: '1688', image: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742' },
+    { name: 'Made-in-China', image: 'https://images.unsplash.com/photo-1494891848038-7bd202a2afeb' },
+    { name: 'Global Sources', image: 'https://images.unsplash.com/photo-1466442929976-97f336a657be' },
+    { name: 'DHgate', image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625' },
+    { name: 'Yiwugo', image: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742' },
+  ];
+
   return (
     <section className="py-16 bg-white" id="partners">
       <div className="container mx-auto px-4">
@@ -18,24 +28,25 @@ const Partners = () => {
 
         <Card className="p-8 bg-white shadow-md border-gray-200">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            <div className="flex items-center justify-center">
-              <div className="bg-gray-200 rounded-lg p-4 h-16 w-full flex items-center justify-center text-gray-500 font-medium">Alibaba</div>
-            </div>
-            <div className="flex items-center justify-center">
-              <div className="bg-gray-200 rounded-lg p-4 h-16 w-full flex items-center justify-center text-gray-500 font-medium">1688</div>
-            </div>
-            <div className="flex items-center justify-center">
-              <div className="bg-gray-200 rounded-lg p-4 h-16 w-full flex items-center justify-center text-gray-500 font-medium">Made-in-China</div>
-            </div>
-            <div className="flex items-center justify-center">
-              <div className="bg-gray-200 rounded-lg p-4 h-16 w-full flex items-center justify-center text-gray-500 font-medium">Global Sources</div>
-            </div>
-            <div className="flex items-center justify-center">
-              <div className="bg-gray-200 rounded-lg p-4 h-16 w-full flex items-center justify-center text-gray-500 font-medium">DHgate</div>
-            </div>
-            <div className="flex items-center justify-center">
-              <div className="bg-gray-200 rounded-lg p-4 h-16 w-full flex items-center justify-center text-gray-500 font-medium">Yiwugo</div>
-            </div>
+            {manufacturerImages.map((partner, index) => (
+              <div key={index} className="flex items-center justify-center relative group">
+                <div 
+                  className="relative w-full h-24 rounded-lg overflow-hidden"
+                  style={{
+                    backgroundImage: `url(${partner.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                >
+                  {/* Red tint overlay */}
+                  <div className="absolute inset-0 bg-[#ea384c] opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                  {/* Text overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
+                    <span className="text-white font-medium text-sm">{partner.name}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="mt-8 text-center">
