@@ -68,7 +68,7 @@ const Hero = () => {
               <span className="gradient-text">Instantly.</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-xl">
-              Compare prices from hundreds of stores. Get notified when prices drop. Powered by AI.
+              Compare prices from hundreds of stores and manufacturers. Get notified when prices drop. Powered by AI.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Button className="bg-dealfindr-blue hover:bg-dealfindr-blue-dark rounded-full text-white py-6 px-8 flex items-center justify-center">
