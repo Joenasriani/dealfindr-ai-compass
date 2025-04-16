@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,6 +12,8 @@ import Contact from "./pages/Contact";
 import HelpCenter from "./pages/HelpCenter";
 import Privacy from "./pages/Privacy";
 import Cookies from "./pages/Cookies";
+import MobileApp from "./pages/MobileApp";
+import Extension from "./pages/Extension";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,8 @@ const App = () => (
           <Route path="/help" element={<HelpCenter />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/cookies" element={<Cookies />} />
+          <Route path="/mobile-app" element={<MobileApp />} />
+          <Route path="/extension" element={<Extension />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
