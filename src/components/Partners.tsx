@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { AlertCircle } from 'lucide-react';
@@ -38,9 +37,7 @@ const Partners = () => {
                     backgroundPosition: 'center'
                   }}
                 >
-                  {/* Red tint overlay */}
-                  <div className="absolute inset-0 bg-[#ea384c] opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-                  {/* Text overlay */}
+                  <div className="absolute inset-0 bg-[#c0313d] opacity-15 group-hover:opacity-25 transition-opacity duration-300"></div>
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
                     <span className="text-white font-medium text-sm">{partner.name}</span>
                   </div>

@@ -29,7 +29,7 @@ export default {
 				background: '#FFFFFF',
 				foreground: '#000000',
 				primary: {
-					DEFAULT: '#ea384c', 
+					DEFAULT: '#c0313d', 
 					foreground: '#FFFFFF'
 				},
 				secondary: {
@@ -49,10 +49,10 @@ export default {
 					foreground: '#FFFFFF'
 				},
 				dealfindr: {
-					blue: '#ea384c', 
+					blue: '#c0313d', 
 					'blue-dark': '#8E9196', 
 					'blue-light': '#FFFFFF', 
-					green: '#ea384c', 
+					green: '#c0313d', 
 					'green-light': '#FFFFFF',
 					'green-dark': '#8E9196',
 					gray: '#FFFFFF', 
