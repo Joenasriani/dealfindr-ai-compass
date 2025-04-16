@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -19,7 +18,7 @@ const About = () => {
               About <span className="gradient-text">DealFindr AI</span>
             </h1>
             <p className="text-xl text-gray-700">
-              Our mission is to save shoppers money using ethical AI and make smart shopping accessible to everyone.
+              My name is Joe Nasr, and I'm based in Dubai. Welcome to our platform—a comprehensive price comparison website covering global markets, with a particular emphasis on Chinese manufacturers. Here, you can effortlessly compare prices from around the world to find the best deals, ensuring you get the most affordable option every time.
             </p>
           </div>
         </div>
@@ -31,7 +30,7 @@ const About = () => {
             <h2 className="text-3xl font-bold mb-8 text-center">Our Story</h2>
             <div className="prose prose-lg max-w-none">
               <p>
-                DealFindr AI was founded in 2023 by a team of technology enthusiasts and savvy shoppers who were frustrated with the existing price comparison tools on the market. We believed there had to be a better way to find the best deals online without spending hours searching through different websites.
+                DealFindr AI was founded by Joe Nasr with a vision to revolutionize how people compare prices globally. Based in Dubai, we've built a platform that specializes in connecting buyers with manufacturers worldwide, particularly focusing on the Chinese market.
               </p>
               <p>
                 Using the latest advancements in artificial intelligence and machine learning, we built a platform that not only compares prices across hundreds of retailers but also understands user preferences, predicts price trends, and delivers personalized deal recommendations.
@@ -112,7 +111,6 @@ const About = () => {
               We're a diverse team of developers, data scientists, and shopping enthusiasts working together to revolutionize how people shop online.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-              {/* Team members - using placeholders */}
               {[1, 2, 3, 4, 5, 6].map((index) => (
                 <div key={index} className="flex flex-col items-center">
                   <div className="w-32 h-32 rounded-full bg-gray-300 mb-4"></div>
