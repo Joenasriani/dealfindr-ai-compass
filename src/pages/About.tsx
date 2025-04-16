@@ -103,36 +103,6 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-8">Meet Our Team</h2>
-            <p className="text-lg text-gray-700 mb-12">
-              We're a diverse team of developers, data scientists, and shopping enthusiasts working together to revolutionize how people shop online.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-              {[1, 2, 3, 4, 5, 6].map((index) => (
-                <div key={index} className="flex flex-col items-center">
-                  <div className="w-32 h-32 rounded-full bg-gray-300 mb-4"></div>
-                  <h3 className="font-semibold">Team Member {index}</h3>
-                  <p className="text-sm text-gray-600">Position</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-16">
-              <h3 className="text-2xl font-semibold mb-4">Join Our Team</h3>
-              <p className="text-gray-700 mb-6">
-                We're always looking for talented individuals to help us build the future of smart shopping.
-              </p>
-              <Button className="bg-dealfindr-blue hover:bg-dealfindr-blue-dark rounded-full">
-                View Open Positions
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <CTA />
       <Footer />
     </div>
