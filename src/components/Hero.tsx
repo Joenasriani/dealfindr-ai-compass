@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Search, Bell, DollarSign } from 'lucide-react';
@@ -86,102 +85,41 @@ const Hero = () => {
   return (
     <section className="bg-gradient-to-b from-white to-dealfindr-gray py-8 md:py-24">
       <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto mb-8 md:mb-16">
-          <div className="flex items-center bg-white rounded-full shadow-xl overflow-hidden">
-            <Search className="h-5 w-5 md:h-8 md:w-8 text-gray-500 ml-4 md:ml-8 mr-2 md:mr-4" />
-            <Input 
-              type="text" 
-              placeholder="Search products..." 
-              className="flex-1 border-none text-base md:text-2xl py-3 md:py-6 px-2 md:px-4 focus:ring-0"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-            />
-            <Select
-              value={selectedCurrency}
-              onValueChange={setSelectedCurrency}
-            >
-              <SelectTrigger className="w-[80px] md:w-[100px] border-none text-sm md:text-base">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="CNY">¥ CNY</SelectItem>
-                <SelectItem value="USD">$ USD</SelectItem>
-                <SelectItem value="AED">د.إ AED</SelectItem>
-              </SelectContent>
-            </Select>
-            <Button 
-              className="mr-2 rounded-full bg-dealfindr-blue hover:bg-dealfindr-blue-dark py-3 md:py-6 px-4 md:px-8 text-sm md:text-base"
-              onClick={handleSearch}
-            >
-              Search
-            </Button>
-          </div>
-        </div>
-
-        {searchResults ? (
-          <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl p-6 mb-12">
-            <h2 className="text-2xl font-bold mb-4">Search Results for "{searchQuery}"</h2>
-            <div className="space-y-4">
-              {searchResults.map((result) => (
-                <div key={result.id} className="bg-dealfindr-gray rounded-lg p-4 border border-gray-200 hover:shadow-md transition-shadow">
-                  <div className="flex justify-between">
-                    <div>
-                      <h3 className="font-medium">{result.name}</h3>
-                      <p className="text-sm text-gray-500">{result.description}</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-bold text-dealfindr-green">
-                        {getCurrencySymbol(selectedCurrency)}{convertPrice(result.price, selectedCurrency)}/pc
-                      </p>
-                      <p className="text-xs text-gray-500">MOQ: {result.moq}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-6 flex justify-center">
-              <Button variant="outline" className="text-sm text-dealfindr-blue border-dealfindr-blue rounded-full">
-                View All {searchResults.length} Results
+        <div className="flex flex-col lg:flex-row items-center">
+          <div className="lg:w-1/2 mb-10 lg:mb-0">
+            <h1 className="text-6xl font-bold mb-6 leading-tight">
+              Find the Best Deals.{' '}
+              <span className="gradient-text">Instantly.</span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-xl">
+              Compare prices from hundreds of stores and manufacturers. Get notified when prices drop. Powered by AI.
+            </p>
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+              <Button className="bg-dealfindr-blue hover:bg-dealfindr-blue-dark rounded-full text-white py-6 px-8 flex items-center justify-center">
+                <Search className="mr-2 h-5 w-5" />
+                Start Saving Now
+              </Button>
+              <Button variant="outline" className="border-dealfindr-blue text-dealfindr-blue rounded-full py-6 px-8 flex items-center justify-center">
+                <Bell className="mr-2 h-5 w-5" />
+                Try Our Price Tracker
               </Button>
             </div>
           </div>
-        ) : (
-          <div className="flex flex-col lg:flex-row items-center">
-            <div className="lg:w-1/2 mb-10 lg:mb-0">
-              <h1 className="text-6xl font-bold mb-6 leading-tight">
-                Find the Best Deals.{' '}
-                <span className="gradient-text">Instantly.</span>
-              </h1>
-              <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-xl">
-                Compare prices from hundreds of stores and manufacturers. Get notified when prices drop. Powered by AI.
-              </p>
-              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <Button className="bg-dealfindr-blue hover:bg-dealfindr-blue-dark rounded-full text-white py-6 px-8 flex items-center justify-center">
-                  <Search className="mr-2 h-5 w-5" />
-                  Start Saving Now
-                </Button>
-                <Button variant="outline" className="border-dealfindr-blue text-dealfindr-blue rounded-full py-6 px-8 flex items-center justify-center">
-                  <Bell className="mr-2 h-5 w-5" />
-                  Try Our Price Tracker
-                </Button>
-              </div>
-            </div>
-            <div className="lg:w-1/2 relative mt-8 lg:mt-0">
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden p-6 card-shadow">
-                <div className="mb-6 border-b pb-4">
-                  <div className="flex items-center bg-gray-100 rounded-full p-2 mb-3">
-                    <Search className="h-5 w-5 text-gray-500 mx-2" />
-                    <input 
-                      type="text" 
-                      className="bg-transparent flex-1 outline-none text-gray-700 placeholder-gray-500" 
-                      placeholder="Search for any product..."
-                      value="Electronic Components Wholesale"
-                      readOnly
-                    />
-                  </div>
+          <div className="lg:w-1/2 relative mt-8 lg:mt-0">
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden p-6 card-shadow">
+              <div className="mb-6 border-b pb-4">
+                <div className="flex items-center bg-gray-100 rounded-full p-2 mb-3">
+                  <Search className="h-5 w-5 text-gray-500 mx-2" />
+                  <input 
+                    type="text" 
+                    className="bg-transparent flex-1 outline-none text-gray-700 placeholder-gray-500" 
+                    placeholder="Search for any product..."
+                    value="Electronic Components Wholesale"
+                    readOnly
+                  />
                 </div>
-                <div className="space-y-4">
+              </div>
+              <div className="space-y-4">
                   <div className="bg-dealfindr-gray rounded-lg p-4 border border-gray-200 hover-scale">
                     <div className="flex justify-between">
                       <div>
@@ -230,13 +168,12 @@ const Hero = () => {
                     View All 25 Manufacturers
                   </Button>
                 </div>
-              </div>
-              <div className="absolute -bottom-4 -right-4 bg-dealfindr-green text-white rounded-full px-4 py-2 text-sm font-medium animate-pulse-slow">
-                Save up to 45% with direct factory prices
-              </div>
+            </div>
+            <div className="absolute -bottom-4 -right-4 bg-dealfindr-green text-white rounded-full px-4 py-2 text-sm font-medium animate-pulse-slow">
+              Save up to 45% with direct factory prices
             </div>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );
