@@ -1,12 +1,28 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Search, Bell } from 'lucide-react';
-import ManufacturerSearch from './ManufacturerSearch';
+import { Input } from '@/components/ui/input';
 
 const Hero = () => {
   return (
     <section className="bg-gradient-to-b from-white to-dealfindr-gray py-16 md:py-24">
       <div className="container mx-auto px-4">
+        {/* Enhanced Search Bar */}
+        <div className="max-w-4xl mx-auto mb-12">
+          <div className="flex items-center bg-white rounded-full shadow-lg overflow-hidden">
+            <Search className="h-6 w-6 text-gray-500 ml-6 mr-4" />
+            <Input 
+              type="text" 
+              placeholder="Search for any product, deal, or manufacturer..." 
+              className="flex-1 border-none text-lg py-4 px-2 focus:ring-0"
+            />
+            <Button className="mr-2 rounded-full bg-dealfindr-blue hover:bg-dealfindr-blue-dark">
+              Search
+            </Button>
+          </div>
+        </div>
+
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 mb-10 lg:mb-0">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
