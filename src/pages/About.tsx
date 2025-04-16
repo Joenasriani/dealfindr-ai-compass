@@ -1,0 +1,144 @@
+
+import React from 'react';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import CTA from '@/components/CTA';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { Bot, ShieldCheck, Heart, BarChart } from 'lucide-react';
+
+const About = () => {
+  return (
+    <div className="min-h-screen bg-white">
+      <Navbar />
+      
+      <div className="pt-20 pb-16 bg-dealfindr-gray">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              About <span className="gradient-text">DealFindr AI</span>
+            </h1>
+            <p className="text-xl text-gray-700">
+              Our mission is to save shoppers money using ethical AI and make smart shopping accessible to everyone.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-8 text-center">Our Story</h2>
+            <div className="prose prose-lg max-w-none">
+              <p>
+                DealFindr AI was founded in 2023 by a team of technology enthusiasts and savvy shoppers who were frustrated with the existing price comparison tools on the market. We believed there had to be a better way to find the best deals online without spending hours searching through different websites.
+              </p>
+              <p>
+                Using the latest advancements in artificial intelligence and machine learning, we built a platform that not only compares prices across hundreds of retailers but also understands user preferences, predicts price trends, and delivers personalized deal recommendations.
+              </p>
+              <p>
+                Today, DealFindr AI helps thousands of shoppers save money every day. Our technology continuously improves as more people use it, making the shopping experience better for everyone.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-dealfindr-gray">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-12 text-center">Our Values</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Card className="p-6 shadow-md">
+              <div className="flex items-start mb-4">
+                <div className="bg-dealfindr-blue-light rounded-full p-3 mr-4">
+                  <Bot className="h-6 w-6 text-dealfindr-blue" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Ethical AI</h3>
+                  <p className="text-gray-600">
+                    We're committed to developing AI systems that are transparent, fair, and designed with user privacy as a priority.
+                  </p>
+                </div>
+              </div>
+            </Card>
+            <Card className="p-6 shadow-md">
+              <div className="flex items-start mb-4">
+                <div className="bg-dealfindr-blue-light rounded-full p-3 mr-4">
+                  <ShieldCheck className="h-6 w-6 text-dealfindr-blue" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">User Privacy</h3>
+                  <p className="text-gray-600">
+                    We never sell your personal data. Your shopping preferences and history are used only to improve your experience.
+                  </p>
+                </div>
+              </div>
+            </Card>
+            <Card className="p-6 shadow-md">
+              <div className="flex items-start mb-4">
+                <div className="bg-dealfindr-blue-light rounded-full p-3 mr-4">
+                  <Heart className="h-6 w-6 text-dealfindr-blue" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Customer First</h3>
+                  <p className="text-gray-600">
+                    Everything we build is designed with our users in mind. Your feedback shapes our product roadmap.
+                  </p>
+                </div>
+              </div>
+            </Card>
+            <Card className="p-6 shadow-md">
+              <div className="flex items-start mb-4">
+                <div className="bg-dealfindr-blue-light rounded-full p-3 mr-4">
+                  <BarChart className="h-6 w-6 text-dealfindr-blue" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Transparency</h3>
+                  <p className="text-gray-600">
+                    We're upfront about how we make money and our relationship with retailers. No hidden agendas.
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-8">Meet Our Team</h2>
+            <p className="text-lg text-gray-700 mb-12">
+              We're a diverse team of developers, data scientists, and shopping enthusiasts working together to revolutionize how people shop online.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+              {/* Team members - using placeholders */}
+              {[1, 2, 3, 4, 5, 6].map((index) => (
+                <div key={index} className="flex flex-col items-center">
+                  <div className="w-32 h-32 rounded-full bg-gray-300 mb-4"></div>
+                  <h3 className="font-semibold">Team Member {index}</h3>
+                  <p className="text-sm text-gray-600">Position</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-16">
+              <h3 className="text-2xl font-semibold mb-4">Join Our Team</h3>
+              <p className="text-gray-700 mb-6">
+                We're always looking for talented individuals to help us build the future of smart shopping.
+              </p>
+              <Button className="bg-dealfindr-blue hover:bg-dealfindr-blue-dark rounded-full">
+                View Open Positions
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CTA />
+      <Footer />
+    </div>
+  );
+};
+
+export default About;
