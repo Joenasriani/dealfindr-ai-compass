@@ -2,12 +2,15 @@
 import { useState } from 'react';
 import { toast } from "@/hooks/use-toast";
 import { manufacturerSites, type ManufacturerPrice } from '@/data/manufacturerSites';
+import { useAuth } from '@/contexts/AuthContext';
+import { supabase } from '@/integrations/supabase/client';
 
 export const useManufacturerSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchResults, setSearchResults] = useState<ManufacturerPrice[]>([]);
   const [isSearching, setIsSearching] = useState(false);
+  const { user } = useAuth();
 
   const simulateSearch = async (site: ManufacturerPrice): Promise<ManufacturerPrice> => {
     const randomPrice = Math.floor(Math.random() * 1000) + 10;
@@ -18,6 +21,20 @@ export const useManufacturerSearch = () => {
       currency: 'USD',
       available
     };
+  };
+
+  const logSearch = async () => {
+    if (!user) return;
+    
+    try {
+      await supabase.from('search_logs').insert({
+        user_id: user.id,
+        search_term: searchTerm,
+        category: selectedCategory
+      });
+    } catch (error) {
+      console.error('Failed to log search:', error);
+    }
   };
 
   const handleSearch = async () => {
@@ -47,6 +64,11 @@ export const useManufacturerSearch = () => {
       });
 
       setSearchResults(sortedResults);
+      
+      // Log the search if user is logged in
+      if (user) {
+        await logSearch();
+      }
       
       toast({
         title: "Search completed",

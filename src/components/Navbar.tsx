@@ -1,7 +1,8 @@
+
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Globe, DollarSign, JapaneseYen, Sword, User } from 'lucide-react';
+import { Menu, X, Globe, DollarSign, JapaneseYen, Sword, User, LayoutDashboard } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 
 const Navbar = () => {
@@ -42,6 +43,12 @@ const Navbar = () => {
           <Link to="/contact" className="text-gray-700 hover:text-dealfindr-blue transition-colors">
             Contact
           </Link>
+          {user && (
+            <Link to="/dashboard" className="text-gray-700 hover:text-dealfindr-blue transition-colors flex items-center">
+              <LayoutDashboard className="h-4 w-4 mr-1" />
+              Dashboard
+            </Link>
+          )}
         </div>
 
         {/* Desktop CTAs */}
@@ -112,6 +119,16 @@ const Navbar = () => {
             >
               Contact
             </Link>
+            {user && (
+              <Link
+                to="/dashboard"
+                className="text-gray-700 hover:text-dealfindr-blue py-2 transition-colors flex items-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <LayoutDashboard className="h-4 w-4 mr-1" />
+                Dashboard
+              </Link>
+            )}
             <div className="pt-2 flex flex-col space-y-3">
               <div className="flex items-center border rounded-full px-3 py-2 bg-gray-50 w-fit">
                 <Globe className="h-4 w-4 text-gray-500 mr-2" />
