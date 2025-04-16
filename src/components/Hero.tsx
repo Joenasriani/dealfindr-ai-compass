@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Search, Bell } from 'lucide-react';
+import ManufacturerSearch from './ManufacturerSearch';
 
 const Hero = () => {
   return (
@@ -27,7 +27,7 @@ const Hero = () => {
               </Button>
             </div>
           </div>
-          <div className="lg:w-1/2 relative">
+          <div className="lg:w-1/2 relative mt-8 lg:mt-0">
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden p-6 card-shadow">
               <div className="mb-6 border-b pb-4">
                 <div className="flex items-center bg-gray-100 rounded-full p-2 mb-3">
