@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Bell, DollarSign } from 'lucide-react';
+import { DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from "@/hooks/use-toast";
 import ManufacturerSearch from './ManufacturerSearch';
@@ -35,10 +35,6 @@ const Hero = () => {
                 className="bg-dealfindr-blue hover:bg-dealfindr-blue-dark rounded-full text-white py-6 px-8 flex items-center justify-center"
               >
                 Start Saving Now
-              </Button>
-              <Button variant="outline" className="border-dealfindr-blue text-dealfindr-blue rounded-full py-6 px-8 flex items-center justify-center">
-                <Bell className="mr-2 h-5 w-5" />
-                Try Our Price Tracker
               </Button>
             </div>
           </div>
