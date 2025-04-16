@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Search, Bell, DollarSign } from 'lucide-react';
@@ -83,15 +84,15 @@ const Hero = () => {
   };
 
   return (
-    <section className="bg-gradient-to-b from-white to-dealfindr-gray py-16 md:py-24">
+    <section className="bg-gradient-to-b from-white to-dealfindr-gray py-8 md:py-24">
       <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto mb-16">
+        <div className="max-w-5xl mx-auto mb-8 md:mb-16">
           <div className="flex items-center bg-white rounded-full shadow-xl overflow-hidden">
-            <Search className="h-8 w-8 text-gray-500 ml-8 mr-4" />
+            <Search className="h-5 w-5 md:h-8 md:w-8 text-gray-500 ml-4 md:ml-8 mr-2 md:mr-4" />
             <Input 
               type="text" 
-              placeholder="Search for any product, deal, or manufacturer..." 
-              className="flex-1 border-none text-xl md:text-2xl py-6 px-4 focus:ring-0"
+              placeholder="Search products..." 
+              className="flex-1 border-none text-base md:text-2xl py-3 md:py-6 px-2 md:px-4 focus:ring-0"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
@@ -100,7 +101,7 @@ const Hero = () => {
               value={selectedCurrency}
               onValueChange={setSelectedCurrency}
             >
-              <SelectTrigger className="w-[100px] border-none">
+              <SelectTrigger className="w-[80px] md:w-[100px] border-none text-sm md:text-base">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -110,7 +111,7 @@ const Hero = () => {
               </SelectContent>
             </Select>
             <Button 
-              className="mr-2 rounded-full bg-dealfindr-blue hover:bg-dealfindr-blue-dark py-6 px-8 text-base"
+              className="mr-2 rounded-full bg-dealfindr-blue hover:bg-dealfindr-blue-dark py-3 md:py-6 px-4 md:px-8 text-sm md:text-base"
               onClick={handleSearch}
             >
               Search
