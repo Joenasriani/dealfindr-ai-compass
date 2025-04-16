@@ -46,4 +46,7 @@ const ManufacturerSearch = () => {
         </Button>
       </div>
     </div>
-  
+  );
+};
+
+export default ManufacturerSearch;
