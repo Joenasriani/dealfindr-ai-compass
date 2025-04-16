@@ -5,7 +5,6 @@ import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import HowItWorks from '@/components/HowItWorks';
 import Partners from '@/components/Partners';
-import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import { useAuth } from '@/contexts/AuthContext';
 
@@ -26,7 +25,6 @@ const Index = () => {
           </div>
         )}
         <Partners />
-        <CTA />
       </main>
       <Footer />
     </div>
