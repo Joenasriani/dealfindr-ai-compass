@@ -13,7 +13,7 @@ const Navbar = () => {
           <div className="flex items-center justify-center bg-gradient-to-r from-[#ea384c] to-[#f05a5a] p-2 rounded-lg">
             <DollarSign className="h-6 w-6 text-white" />
           </div>
-          <span className="text-2xl font-bold gradient-text">Director Price Connect</span>
+          <span className="text-2xl font-bold gradient-text">Direct Price Connect</span>
         </Link>
 
         {/* Desktop Navigation */}

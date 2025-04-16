@@ -88,7 +88,7 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 mb-10 lg:mb-0">
             <h1 className="text-6xl font-bold mb-6 leading-tight">
-              Director Price Connect:{' '}
+              Direct Price Connect:{' '}
               <span className="gradient-text">Find Better Deals.</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-xl">

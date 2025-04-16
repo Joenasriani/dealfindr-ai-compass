@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -10,7 +11,7 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   useEffect(() => {
-    document.title = "Director Price Connect - Global Price Comparison";
+    document.title = "Direct Price Connect - Global Price Comparison";
   }, []);
 
   return (
