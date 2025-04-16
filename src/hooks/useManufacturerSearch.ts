@@ -27,11 +27,15 @@ export const useManufacturerSearch = () => {
     if (!user) return;
     
     try {
-      await supabase.from('search_logs').insert({
-        user_id: user.id,
-        search_term: searchTerm,
-        category: selectedCategory
-      });
+      // Use the any type to override TypeScript's strict checking for now
+      // since the types.ts file doesn't know about our new search_logs table
+      await supabase
+        .from('search_logs' as any)
+        .insert({
+          user_id: user.id,
+          search_term: searchTerm,
+          category: selectedCategory
+        } as any);
     } catch (error) {
       console.error('Failed to log search:', error);
     }

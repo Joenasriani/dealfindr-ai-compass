@@ -15,6 +15,7 @@ interface SearchLog {
   search_term: string;
   category: string | null;
   created_at: string;
+  user_id: string;
 }
 
 const Dashboard = () => {
@@ -33,10 +34,10 @@ const Dashboard = () => {
       setLoading(true);
       try {
         const { data, error } = await supabase
-          .from('search_logs')
+          .from('search_logs' as any)
           .select('*')
           .order('created_at', { ascending: false })
-          .limit(50);
+          .limit(50) as { data: SearchLog[] | null, error: any };
 
         if (error) throw error;
         setSearchHistory(data || []);
