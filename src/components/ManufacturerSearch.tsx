@@ -21,8 +21,8 @@ const ManufacturerSearch = () => {
   const categories = Array.from(new Set(manufacturerSites.map(site => site.category)));
 
   return (
-    <Card className="bg-white p-6 rounded-xl shadow-sm border">
-      <h3 className="text-xl font-semibold mb-4">Find Direct Manufacturers</h3>
+    <Card className="bg-white p-6 rounded-xl shadow-sm border space-y-3">
+      <h3 className="text-xl font-semibold mb-2">Find Direct Manufacturers</h3>
       <CategoryFilter 
         categories={categories}
         selectedCategory={selectedCategory}
