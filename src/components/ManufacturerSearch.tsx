@@ -1,10 +1,22 @@
+
 import React, { useState } from 'react';
 import { Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from "@/hooks/use-toast";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Card } from "@/components/ui/card";
 
-const manufacturerSites = [
+interface ManufacturerPrice {
+  name: string;
+  url: string;
+  category: string;
+  price?: number;
+  currency?: string;
+  available?: boolean;
+}
+
+const manufacturerSites: ManufacturerPrice[] = [
   // Major B2B Platforms
   { name: '1688', url: 'https://s.1688.com/selloffer/offer_search.htm', category: 'B2B Platform' },
   { name: 'Made in China', url: 'https://www.made-in-china.com/productdirectory.do', category: 'B2B Platform' },
@@ -32,24 +44,24 @@ const manufacturerSites = [
 const ManufacturerSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [searchResults, setSearchResults] = useState<ManufacturerPrice[]>([]);
+  const [isSearching, setIsSearching] = useState(false);
 
   const categories = Array.from(new Set(manufacturerSites.map(site => site.category)));
 
-  const handleSearch = (site: typeof manufacturerSites[0]) => {
-    if (!searchTerm.trim()) {
-      toast({
-        title: "Please enter a search term",
-        description: "Enter a product to search across manufacturers",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    const searchUrl = `${site.url}?q=${encodeURIComponent(searchTerm)}`;
-    window.open(searchUrl, '_blank');
+  const simulateSearch = async (site: ManufacturerPrice): Promise<ManufacturerPrice> => {
+    // Simulate an API call to get price data
+    const randomPrice = Math.floor(Math.random() * 1000) + 10;
+    const available = Math.random() > 0.3;
+    return {
+      ...site,
+      price: randomPrice,
+      currency: 'USD',
+      available
+    };
   };
 
-  const handleSearchAll = () => {
+  const handleSearch = async () => {
     if (!searchTerm.trim()) {
       toast({
         title: "Please enter a search term",
@@ -59,35 +71,48 @@ const ManufacturerSearch = () => {
       return;
     }
 
+    setIsSearching(true);
     const filteredSites = manufacturerSites.filter(site => 
       selectedCategory === 'all' || site.category === selectedCategory
     );
 
-    filteredSites.forEach(site => {
-      const searchUrl = `${site.url}?q=${encodeURIComponent(searchTerm)}`;
-      window.open(searchUrl, '_blank');
-    });
+    try {
+      const results = await Promise.all(
+        filteredSites.map(site => simulateSearch(site))
+      );
 
-    toast({
-      title: "Search initiated",
-      description: `Searching across ${filteredSites.length} manufacturer sites`,
-    });
+      // Sort by price (available items first, then by price)
+      const sortedResults = results.sort((a, b) => {
+        if (a.available && !b.available) return -1;
+        if (!a.available && b.available) return 1;
+        return (a.price || 0) - (b.price || 0);
+      });
+
+      setSearchResults(sortedResults);
+      
+      toast({
+        title: "Search completed",
+        description: `Found prices from ${results.length} manufacturers`,
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to fetch prices",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSearching(false);
+    }
   };
 
-  const filteredSites = manufacturerSites.filter(site => {
-    const matchesSearch = site.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === 'all' || site.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
-
   return (
-    <div className="bg-white p-6 rounded-xl shadow-sm border">
+    <Card className="bg-white p-6 rounded-xl shadow-sm border">
       <h3 className="text-xl font-semibold mb-4">Find Direct Manufacturers</h3>
       <div className="space-y-4">
         <div className="relative">
           <Input 
             type="text" 
-            placeholder="Search manufacturer platforms..." 
+            placeholder="Search for a product..." 
             className="pl-10"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -121,30 +146,63 @@ const ManufacturerSearch = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-[300px] overflow-y-auto">
-          {filteredSites.map((site) => (
-            <button
-              key={site.name}
-              onClick={() => handleSearch(site)}
-              className="flex items-center p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors text-left w-full"
-            >
-              <div>
-                <div className="font-medium">{site.name}</div>
-                <div className="text-xs text-gray-500">{site.category}</div>
-              </div>
-            </button>
-          ))}
-        </div>
-
         <Button 
-          onClick={handleSearchAll}
+          onClick={handleSearch}
+          disabled={isSearching}
           className="w-full bg-dealfindr-blue hover:bg-dealfindr-blue-dark"
         >
-          <Search className="mr-2 h-4 w-4" />
-          Search All Manufacturers
+          {isSearching ? "Searching..." : "Search All Manufacturers"}
         </Button>
+
+        {searchResults.length > 0 && (
+          <div className="mt-6">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Manufacturer</TableHead>
+                  <TableHead>Category</TableHead>
+                  <TableHead>Price</TableHead>
+                  <TableHead>Status</TableHead>
+                  <TableHead>Action</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {searchResults.map((result) => (
+                  <TableRow key={result.name}>
+                    <TableCell className="font-medium">{result.name}</TableCell>
+                    <TableCell>{result.category}</TableCell>
+                    <TableCell>
+                      {result.available 
+                        ? `$${result.price?.toFixed(2)}` 
+                        : '-'
+                      }
+                    </TableCell>
+                    <TableCell>
+                      <span className={`px-2 py-1 rounded-full text-xs ${
+                        result.available 
+                          ? 'bg-green-100 text-green-800' 
+                          : 'bg-red-100 text-red-800'
+                      }`}>
+                        {result.available ? 'In Stock' : 'Out of Stock'}
+                      </span>
+                    </TableCell>
+                    <TableCell>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => window.open(`${result.url}?q=${encodeURIComponent(searchTerm)}`, '_blank')}
+                      >
+                        Visit Site
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        )}
       </div>
-    </div>
+    </Card>
   );
 };
 
