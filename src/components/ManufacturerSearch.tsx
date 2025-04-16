@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,7 +6,6 @@ import { toast } from "@/hooks/use-toast";
 
 const manufacturerSites = [
   // Major B2B Platforms
-  { name: 'Alibaba', url: 'https://www.alibaba.com/trade/search/product', category: 'B2B Platform' },
   { name: '1688', url: 'https://s.1688.com/selloffer/offer_search.htm', category: 'B2B Platform' },
   { name: 'Made in China', url: 'https://www.made-in-china.com/productdirectory.do', category: 'B2B Platform' },
   { name: 'Global Sources', url: 'https://www.globalsources.com/product-search', category: 'B2B Platform' },
@@ -18,7 +16,6 @@ const manufacturerSites = [
   { name: 'Chic Me', url: 'https://www.chicme.com/search', category: 'Fashion' },
   { name: 'LightInTheBox', url: 'https://www.lightinthebox.com/c/search', category: 'Industry Specific' },
   { name: 'Banggood', url: 'https://www.banggood.com/search', category: 'Industry Specific' },
-  { name: 'AliExpress', url: 'https://www.aliexpress.com/wholesale', category: 'B2C Platform' },
   
   // Electronics & Components
   { name: 'Shenzhen LCSC', url: 'https://www.lcsc.com/search', category: 'Electronics' },
