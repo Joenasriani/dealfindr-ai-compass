@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Search, Bell } from 'lucide-react';
@@ -8,16 +7,15 @@ const Hero = () => {
   return (
     <section className="bg-gradient-to-b from-white to-dealfindr-gray py-16 md:py-24">
       <div className="container mx-auto px-4">
-        {/* Enhanced Search Bar with Increased Size */}
-        <div className="max-w-5xl mx-auto mb-16"> {/* Increased max-width and margin bottom */}
-          <div className="flex items-center bg-white rounded-full shadow-xl overflow-hidden"> {/* Enhanced shadow */}
-            <Search className="h-8 w-8 text-gray-500 ml-8 mr-4" /> {/* Larger search icon */}
+        <div className="max-w-5xl mx-auto mb-16">
+          <div className="flex items-center bg-white rounded-full shadow-xl overflow-hidden">
+            <Search className="h-8 w-8 text-gray-500 ml-8 mr-4" />
             <Input 
               type="text" 
               placeholder="Search for any product, deal, or manufacturer..." 
-              className="flex-1 border-none text-xl md:text-2xl py-6 px-4 focus:ring-0" /* Increased text size and padding */
+              className="flex-1 border-none text-xl md:text-2xl py-6 px-4 focus:ring-0"
             />
-            <Button className="mr-2 rounded-full bg-dealfindr-blue hover:bg-dealfindr-blue-dark py-6 px-8 text-base"> {/* Larger button */}
+            <Button className="mr-2 rounded-full bg-dealfindr-blue hover:bg-dealfindr-blue-dark py-6 px-8 text-base">
               Search
             </Button>
           </div>
@@ -52,7 +50,7 @@ const Hero = () => {
                     type="text" 
                     className="bg-transparent flex-1 outline-none text-gray-700 placeholder-gray-500" 
                     placeholder="Search for any product..."
-                    value="Sony WH-1000XM4 Headphones"
+                    value="Electronic Components Wholesale"
                     readOnly
                   />
                 </div>
@@ -61,48 +59,48 @@ const Hero = () => {
                 <div className="bg-dealfindr-gray rounded-lg p-4 border border-gray-200 hover-scale">
                   <div className="flex justify-between">
                     <div>
-                      <h3 className="font-medium">Amazon</h3>
-                      <p className="text-sm text-gray-500">Free shipping</p>
+                      <h3 className="font-medium">Shenzhen LCSC</h3>
+                      <p className="text-sm text-gray-500">Bulk Orders Available</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-bold text-dealfindr-green">$248.00</p>
-                      <p className="text-xs text-gray-500">Last updated: 2h ago</p>
+                      <p className="font-bold text-dealfindr-green">¥12.50/pc</p>
+                      <p className="text-xs text-gray-500">MOQ: 1000 pcs</p>
                     </div>
                   </div>
                 </div>
                 <div className="bg-dealfindr-gray rounded-lg p-4 border border-gray-200 hover-scale">
                   <div className="flex justify-between">
                     <div>
-                      <h3 className="font-medium">Best Buy</h3>
-                      <p className="text-sm text-gray-500">In store pickup</p>
+                      <h3 className="font-medium">Yiwu Market</h3>
+                      <p className="text-sm text-gray-500">Direct Factory</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-bold">$279.99</p>
-                      <p className="text-xs text-gray-500">Last updated: 5h ago</p>
+                      <p className="font-bold">¥11.80/pc</p>
+                      <p className="text-xs text-gray-500">MOQ: 5000 pcs</p>
                     </div>
                   </div>
                 </div>
                 <div className="bg-dealfindr-gray rounded-lg p-4 border border-gray-200 hover-scale">
                   <div className="flex justify-between">
                     <div>
-                      <h3 className="font-medium">Walmart</h3>
-                      <p className="text-sm text-gray-500">Free shipping</p>
+                      <h3 className="font-medium">Guangzhou Trading</h3>
+                      <p className="text-sm text-gray-500">OEM Available</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-bold">$298.00</p>
-                      <p className="text-xs text-gray-500">Last updated: 1d ago</p>
+                      <p className="font-bold">¥13.20/pc</p>
+                      <p className="text-xs text-gray-500">MOQ: 2000 pcs</p>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="mt-6 flex justify-center">
                 <Button variant="outline" className="text-sm text-dealfindr-blue border-dealfindr-blue rounded-full">
-                  View All 12 Deals
+                  View All 25 Manufacturers
                 </Button>
               </div>
             </div>
             <div className="absolute -bottom-4 -right-4 bg-dealfindr-green text-white rounded-full px-4 py-2 text-sm font-medium animate-pulse-slow">
-              Save up to 21% compared to retail
+              Save up to 45% with direct factory prices
             </div>
           </div>
         </div>
