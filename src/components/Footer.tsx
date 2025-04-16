@@ -16,7 +16,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold mb-4 gradient-text">ComparePricesEverywhere</h3>
+            <h3 className="text-xl font-bold mb-4 gradient-text">Compare Price Matrix</h3>
             <p className="text-gray-600 mb-4">
               Your global price comparison platform to find the best deals online and save money on every purchase.
             </p>
@@ -124,7 +124,7 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            © 2023 ComparePricesEverywhere. All rights reserved.
+            © 2023 Compare Price Matrix. All rights reserved.
           </p>
           <div className="flex items-center text-gray-500 text-sm">
             <Shield className="h-4 w-4 mr-2" />
