@@ -1,10 +1,10 @@
+
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { AlertCircle } from 'lucide-react';
 
 const Partners = () => {
   const manufacturerImages = [
-    { name: 'Alibaba', image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625' },
     { name: '1688', image: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742' },
     { name: 'Made-in-China', image: 'https://images.unsplash.com/photo-1494891848038-7bd202a2afeb' },
     { name: 'Global Sources', image: 'https://images.unsplash.com/photo-1466442929976-97f336a657be' },
@@ -26,7 +26,7 @@ const Partners = () => {
         </div>
 
         <Card className="p-8 bg-white shadow-md border-gray-200">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {manufacturerImages.map((partner, index) => (
               <div key={index} className="flex items-center justify-center relative group">
                 <div 
