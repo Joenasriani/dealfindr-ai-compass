@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -19,12 +20,6 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/features" className="text-gray-700 hover:text-dealfindr-blue transition-colors">
-            Features
-          </Link>
-          <Link to="/how-it-works" className="text-gray-700 hover:text-dealfindr-blue transition-colors">
-            How It Works
-          </Link>
           <Link to="/blog" className="text-gray-700 hover:text-dealfindr-blue transition-colors">
             Blog
           </Link>
@@ -66,20 +61,6 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t p-4 shadow-md animate-fade-in">
           <div className="flex flex-col space-y-4">
-            <Link
-              to="/features"
-              className="text-gray-700 hover:text-dealfindr-blue py-2 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Features
-            </Link>
-            <Link
-              to="/how-it-works"
-              className="text-gray-700 hover:text-dealfindr-blue py-2 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              How It Works
-            </Link>
             <Link
               to="/blog"
               className="text-gray-700 hover:text-dealfindr-blue py-2 transition-colors"
