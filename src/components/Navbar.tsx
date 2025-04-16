@@ -10,10 +10,10 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-3">
-          <div className="flex items-center justify-center bg-gradient-to-r from-[#ea384c] to-[#f05a5a] p-2 rounded-lg">
+          <div className="flex items-center justify-center bg-dealfindr-blue p-2 rounded-lg">
             <DollarSign className="h-6 w-6 text-white" />
           </div>
-          <span className="text-2xl font-bold gradient-text">Direct Price Connect</span>
+          <span className="text-2xl font-bold text-dealfindr-blue">Direct Price Connect</span>
         </Link>
 
         {/* Desktop Navigation */}
