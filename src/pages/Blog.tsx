@@ -8,52 +8,58 @@ import { Search } from 'lucide-react';
 
 const blogPosts = [
   {
-    title: "Top 10 Smart TVs Worth Buying in 2023",
-    excerpt: "Looking for a new smart TV? We've compared dozens of models to bring you the absolute best options for every budget.",
-    category: "Shopping Guides",
-    date: "June 15, 2023",
-    readTime: "8 min read",
-    image: "tv"
-  },
-  {
-    title: "How to Save Money Using Price Trackers",
-    excerpt: "Learn how to use price tracking tools effectively to save up to 20% on your online purchases year-round.",
-    category: "Tips & Tricks",
-    date: "May 28, 2023",
-    readTime: "6 min read",
-    image: "money"
-  },
-  {
-    title: "Black Friday vs. Prime Day: When to Buy What",
-    excerpt: "Which shopping event offers better deals? Our data analysis reveals surprising insights about when to buy different product categories.",
-    category: "Deal Analysis",
-    date: "July 3, 2023",
+    title: "Foxconn: The Tech Giant Behind Apple's Success",
+    excerpt: "Deep dive into how Foxconn, China's largest private employer, became Apple's main manufacturing partner and revolutionized electronic production.",
+    category: "Manufacturer Spotlight",
+    date: "March 15, 2024",
     readTime: "10 min read",
-    image: "calendar"
+    image: "foxconn",
+    link: "/blog/foxconn-apple-success"
   },
   {
-    title: "7 Common Online Shopping Mistakes to Avoid",
-    excerpt: "Are you making these common mistakes when shopping online? Learn how to shop smarter and avoid paying more than you should.",
-    category: "Tips & Tricks",
-    date: "June 5, 2023",
-    readTime: "7 min read",
-    image: "warning"
+    title: "How Chinese Manufacturers Shaped Nike's Supply Chain",
+    excerpt: "Explore Nike's journey with Chinese manufacturing partners, from early challenges to creating one of the most efficient supply chains in sportswear.",
+    category: "Case Study",
+    date: "March 10, 2024",
+    readTime: "8 min read",
+    image: "nike",
+    link: "/blog/nike-china-manufacturing"
   },
   {
-    title: "The Ultimate Guide to Buying Laptops in 2023",
-    excerpt: "Confused by all the options? Our comprehensive guide breaks down everything you need to know before buying your next laptop.",
-    category: "Shopping Guides",
-    date: "July 12, 2023",
+    title: "BYD: From Battery Maker to Tesla Competitor",
+    excerpt: "The fascinating story of how BYD evolved from a battery manufacturer for American electronics to becoming Tesla's main competitor in electric vehicles.",
+    category: "Company Profile",
+    date: "March 5, 2024",
     readTime: "12 min read",
-    image: "laptop"
+    image: "byd",
+    link: "/blog/byd-tesla-competitor"
   },
   {
-    title: "How AI is Changing the Way We Shop Online",
-    excerpt: "Artificial intelligence is revolutionizing the online shopping experience. Here's how AI is helping consumers find better deals.",
-    category: "Technology",
-    date: "June 22, 2023",
+    title: "Chinese Manufacturing Zones: A Complete Guide",
+    excerpt: "Understanding China's Special Economic Zones and how they've become global manufacturing hubs for U.S. companies seeking reliable production partners.",
+    category: "Industry Guide",
+    date: "February 28, 2024",
+    readTime: "15 min read",
+    image: "manufacturing",
+    link: "/blog/china-manufacturing-zones"
+  },
+  {
+    title: "From Shenzhen to Silicon Valley: Huawei's Journey",
+    excerpt: "Analysis of Huawei's evolution from a small component manufacturer to a global telecommunications leader, and its impact on U.S. tech infrastructure.",
+    category: "Company Profile",
+    date: "February 20, 2024",
+    readTime: "11 min read",
+    image: "huawei",
+    link: "/blog/huawei-global-impact"
+  },
+  {
+    title: "Quality Control in Chinese Manufacturing",
+    excerpt: "Best practices and standards implemented by top Chinese manufacturers to meet U.S. quality requirements, featuring success stories and lessons learned.",
+    category: "Industry Guide",
+    date: "February 15, 2024",
     readTime: "9 min read",
-    image: "ai"
+    image: "quality",
+    link: "/blog/quality-control-china"
   }
 ];
 
@@ -89,34 +95,35 @@ const Blog = () => {
         <div className="container mx-auto px-4">
           <div className="mb-12 flex flex-wrap justify-center gap-3">
             <Button variant="outline" className="rounded-full">All Topics</Button>
-            <Button variant="outline" className="rounded-full">Shopping Guides</Button>
-            <Button variant="outline" className="rounded-full">Deal Analysis</Button>
-            <Button variant="outline" className="rounded-full">Tips & Tricks</Button>
-            <Button variant="outline" className="rounded-full">Technology</Button>
+            <Button variant="outline" className="rounded-full">Manufacturer Spotlight</Button>
+            <Button variant="outline" className="rounded-full">Case Study</Button>
+            <Button variant="outline" className="rounded-full">Company Profile</Button>
+            <Button variant="outline" className="rounded-full">Industry Guide</Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
               <Card key={index} className="overflow-hidden card-shadow hover-scale">
-                <div className="h-48 bg-gray-300 relative">
-                  {/* Placeholder for blog post image */}
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-dealfindr-blue text-white text-xs font-medium px-3 py-1 rounded-full">
-                      {post.category}
+                <a href={post.link} className="block">
+                  <div className="h-48 bg-gray-300 relative">
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-dealfindr-blue text-white text-xs font-medium px-3 py-1 rounded-full">
+                        {post.category}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <div className="flex justify-between text-sm text-gray-500 mb-2">
+                      <span>{post.date}</span>
+                      <span>{post.readTime}</span>
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3">{post.title}</h3>
+                    <p className="text-gray-600 mb-4">{post.excerpt}</p>
+                    <span className="text-dealfindr-blue font-medium">
+                      Read More →
                     </span>
                   </div>
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between text-sm text-gray-500 mb-2">
-                    <span>{post.date}</span>
-                    <span>{post.readTime}</span>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3">{post.title}</h3>
-                  <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                  <a href="#" className="text-dealfindr-blue font-medium hover:underline">
-                    Read More →
-                  </a>
-                </div>
+                </a>
               </Card>
             ))}
           </div>
