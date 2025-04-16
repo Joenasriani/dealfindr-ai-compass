@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import type { ManufacturerPrice } from '@/data/manufacturerSites';
+import { Store, Factory } from 'lucide-react';
 
 interface SearchResultsTableProps {
   results: ManufacturerPrice[];
@@ -12,10 +13,21 @@ interface SearchResultsTableProps {
 const SearchResultsTable = ({ results, searchTerm }: SearchResultsTableProps) => {
   return (
     <div className="mt-6">
+      <div className="mb-4 flex gap-4 text-sm text-gray-600">
+        <div className="flex items-center gap-1">
+          <Factory className="h-4 w-4" />
+          <span>Direct Manufacturer</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <Store className="h-4 w-4" />
+          <span>Retail Brand</span>
+        </div>
+      </div>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Manufacturer</TableHead>
+            <TableHead>Source</TableHead>
+            <TableHead>Type</TableHead>
             <TableHead>Category</TableHead>
             <TableHead>Price</TableHead>
             <TableHead>Status</TableHead>
@@ -24,8 +36,26 @@ const SearchResultsTable = ({ results, searchTerm }: SearchResultsTableProps) =>
         </TableHeader>
         <TableBody>
           {results.map((result) => (
-            <TableRow key={result.name}>
-              <TableCell className="font-medium">{result.name}</TableCell>
+            <TableRow key={result.name} className={result.type === 'retail' ? 'bg-gray-50' : ''}>
+              <TableCell className="font-medium">
+                <div className="flex items-center gap-2">
+                  {result.type === 'manufacturer' ? (
+                    <Factory className="h-4 w-4 text-dealfindr-blue" />
+                  ) : (
+                    <Store className="h-4 w-4 text-gray-600" />
+                  )}
+                  {result.name}
+                </div>
+              </TableCell>
+              <TableCell>
+                <span className={`px-2 py-1 rounded-full text-xs ${
+                  result.type === 'manufacturer' 
+                    ? 'bg-blue-100 text-blue-800' 
+                    : 'bg-gray-100 text-gray-800'
+                }`}>
+                  {result.type === 'manufacturer' ? 'Manufacturer' : 'Retail'}
+                </span>
+              </TableCell>
               <TableCell>{result.category}</TableCell>
               <TableCell>
                 {result.available 
@@ -60,3 +90,4 @@ const SearchResultsTable = ({ results, searchTerm }: SearchResultsTableProps) =>
 };
 
 export default SearchResultsTable;
+
