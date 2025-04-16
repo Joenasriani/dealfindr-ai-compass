@@ -124,6 +124,12 @@ const Hero = () => {
                   />
                 </div>
               </div>
+              <div className="bg-dealfindr-blue bg-opacity-10 rounded-lg p-3 mb-6 flex items-center justify-center">
+                <DollarSign className="h-5 w-5 text-dealfindr-blue mr-2" />
+                <span className="text-sm font-medium text-dealfindr-blue">
+                  Save up to 45% with direct factory prices
+                </span>
+              </div>
               <div className="space-y-4">
                 {searchResults && searchResults.map((result) => {
                   const isLowestPrice = result.price === findCheapestPrice(searchResults);
@@ -150,9 +156,6 @@ const Hero = () => {
                   View All 25 Manufacturers
                 </Button>
               </div>
-            </div>
-            <div className="absolute -bottom-4 -right-4 bg-dealfindr-green text-white rounded-full px-4 py-2 text-sm font-medium animate-pulse-slow">
-              Save up to 45% with direct factory prices
             </div>
           </div>
         </div>
