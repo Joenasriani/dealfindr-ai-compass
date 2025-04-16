@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -26,8 +25,8 @@ const Navbar = () => {
         <Link to="/" className="flex items-center space-x-3">
           <div className="flex items-center justify-center bg-dealfindr-blue p-2 rounded-lg relative h-14 w-20">
             <DollarSign className="h-6 w-6 text-white absolute left-1 top-3" />
-            <Sword className="h-6 w-6 text-white absolute left-7 top-3 transform -rotate-45" />
-            <JapaneseYen className="h-6 w-6 text-white absolute right-1 top-3" />
+            <JapaneseYen className="h-6 w-6 text-white absolute left-7 top-3" />
+            <Sword className="h-6 w-6 text-white absolute left-1/2 top-3 transform -translate-x-1/2 -rotate-45" />
           </div>
           <span className="text-2xl font-bold text-dealfindr-blue">Direct Price Comparison</span>
         </Link>
