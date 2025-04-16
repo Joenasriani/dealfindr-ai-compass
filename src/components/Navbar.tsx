@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Globe, Search, DollarSign, JapaneseYen } from 'lucide-react';
+import { Menu, X, Globe, JapaneseYen, DollarSign } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,11 +19,14 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/blog" className="text-gray-700 hover:text-dealfindr-blue transition-colors">
-            Blog
+          <Link to="/" className="text-gray-700 hover:text-dealfindr-blue transition-colors">
+            Home
           </Link>
           <Link to="/about" className="text-gray-700 hover:text-dealfindr-blue transition-colors">
             About
+          </Link>
+          <Link to="/contact" className="text-gray-700 hover:text-dealfindr-blue transition-colors">
+            Contact
           </Link>
         </div>
 
@@ -62,11 +64,11 @@ const Navbar = () => {
         <div className="md:hidden bg-white border-t p-4 shadow-md animate-fade-in">
           <div className="flex flex-col space-y-4">
             <Link
-              to="/blog"
+              to="/"
               className="text-gray-700 hover:text-dealfindr-blue py-2 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Blog
+              Home
             </Link>
             <Link
               to="/about"
@@ -74,6 +76,13 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               About
+            </Link>
+            <Link
+              to="/contact"
+              className="text-gray-700 hover:text-dealfindr-blue py-2 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact
             </Link>
             <div className="pt-2 flex flex-col space-y-3">
               <div className="flex items-center border rounded-full px-3 py-2 bg-gray-50 w-fit">
