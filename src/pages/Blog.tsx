@@ -13,7 +13,7 @@ const blogPosts = [
     category: "Manufacturer Spotlight",
     date: "March 15, 2024",
     readTime: "10 min read",
-    image: "foxconn",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800",
     link: "/blog/foxconn-apple-success"
   },
   {
@@ -22,7 +22,7 @@ const blogPosts = [
     category: "Case Study",
     date: "March 10, 2024",
     readTime: "8 min read",
-    image: "nike",
+    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800",
     link: "/blog/nike-china-manufacturing"
   },
   {
@@ -31,7 +31,7 @@ const blogPosts = [
     category: "Company Profile",
     date: "March 5, 2024",
     readTime: "12 min read",
-    image: "byd",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800",
     link: "/blog/byd-tesla-competitor"
   },
   {
@@ -40,7 +40,7 @@ const blogPosts = [
     category: "Industry Guide",
     date: "February 28, 2024",
     readTime: "15 min read",
-    image: "manufacturing",
+    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800",
     link: "/blog/china-manufacturing-zones"
   },
   {
@@ -49,7 +49,7 @@ const blogPosts = [
     category: "Company Profile",
     date: "February 20, 2024",
     readTime: "11 min read",
-    image: "huawei",
+    image: "https://images.unsplash.com/photo-1493397212122-2b85dda8106b?auto=format&fit=crop&w=800",
     link: "/blog/huawei-global-impact"
   },
   {
@@ -58,7 +58,7 @@ const blogPosts = [
     category: "Industry Guide",
     date: "February 15, 2024",
     readTime: "9 min read",
-    image: "quality",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800",
     link: "/blog/quality-control-china"
   }
 ];
@@ -103,9 +103,14 @@ const Blog = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
-              <Card key={index} className="overflow-hidden card-shadow hover-scale">
+              <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <a href={post.link} className="block">
-                  <div className="h-48 bg-gray-300 relative">
+                  <div className="h-48 bg-gray-200 relative overflow-hidden">
+                    <img 
+                      src={post.image} 
+                      alt={post.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
                     <div className="absolute top-4 left-4">
                       <span className="bg-dealfindr-blue text-white text-xs font-medium px-3 py-1 rounded-full">
                         {post.category}
@@ -117,10 +122,15 @@ const Blog = () => {
                       <span>{post.date}</span>
                       <span>{post.readTime}</span>
                     </div>
-                    <h3 className="text-xl font-semibold mb-3">{post.title}</h3>
+                    <h3 className="text-xl font-semibold mb-3 hover:text-dealfindr-blue transition-colors">
+                      {post.title}
+                    </h3>
                     <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                    <span className="text-dealfindr-blue font-medium">
-                      Read More →
+                    <span className="text-dealfindr-blue font-medium inline-flex items-center">
+                      Read More 
+                      <svg className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
                     </span>
                   </div>
                 </a>
@@ -129,7 +139,7 @@ const Blog = () => {
           </div>
 
           <div className="mt-12 text-center">
-            <Button variant="outline" className="border-dealfindr-blue text-dealfindr-blue rounded-full px-8">
+            <Button variant="outline" className="border-dealfindr-blue text-dealfindr-blue rounded-full px-8 hover:bg-dealfindr-blue hover:text-white transition-colors">
               Load More Articles
             </Button>
           </div>
