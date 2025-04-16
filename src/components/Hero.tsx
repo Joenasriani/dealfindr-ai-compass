@@ -1,14 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Search, Bell, DollarSign } from 'lucide-react';
-import { Input } from '@/components/ui/input';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
 import { useNavigate } from 'react-router-dom';
 import { toast } from "@/hooks/use-toast";
 
@@ -17,6 +9,7 @@ const Hero = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<null | any[]>(null);
   const navigate = useNavigate();
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const convertPrice = (price: number, currency: string) => {
     const rates = {
@@ -87,6 +80,20 @@ const Hero = () => {
     return Math.min(...results.map(item => item.price));
   };
 
+  const handleStartSaving = () => {
+    // Scroll to the search input
+    if (searchInputRef.current) {
+      searchInputRef.current.focus();
+      searchInputRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+      // Optionally show a toast to guide the user
+      toast({
+        title: "Let's Find Your Deal",
+        description: "Start typing to search for products",
+      });
+    }
+  };
+
   return (
     <section className="bg-gradient-to-b from-white to-dealfindr-gray py-8 md:py-24">
       <div className="container mx-auto px-4">
@@ -100,7 +107,10 @@ const Hero = () => {
               Compare prices from hundreds of stores and manufacturers. Get notified when prices drop. Powered by AI.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <Button className="bg-dealfindr-blue hover:bg-dealfindr-blue-dark rounded-full text-white py-6 px-8 flex items-center justify-center">
+              <Button 
+                onClick={handleStartSaving} 
+                className="bg-dealfindr-blue hover:bg-dealfindr-blue-dark rounded-full text-white py-6 px-8 flex items-center justify-center"
+              >
                 <Search className="mr-2 h-5 w-5" />
                 Start Saving Now
               </Button>
@@ -116,6 +126,7 @@ const Hero = () => {
                 <div className="flex items-center bg-gray-100 rounded-full p-2 mb-3">
                   <Search className="h-5 w-5 text-gray-500 mx-2" />
                   <input 
+                    ref={searchInputRef}
                     type="text" 
                     className="bg-transparent flex-1 outline-none text-gray-700 placeholder-gray-500" 
                     placeholder="Search for any product..."
