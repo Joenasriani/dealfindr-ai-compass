@@ -1,10 +1,24 @@
+
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Globe, JapaneseYen, DollarSign } from 'lucide-react';
+import { Menu, X, Globe, JapaneseYen, DollarSign, User } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/');
+  };
+
+  const handleAuthClick = () => {
+    navigate('/auth');
+    setIsMenuOpen(false);
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-sm">
@@ -36,12 +50,26 @@ const Navbar = () => {
             <Globe className="h-4 w-4 text-gray-500 mr-2" />
             <span className="text-sm text-gray-700">EN</span>
           </div>
-          <Button variant="outline" size="sm" className="rounded-full">
-            Log In
-          </Button>
-          <Button size="sm" className="rounded-full bg-dealfindr-blue hover:bg-dealfindr-blue-dark">
-            Sign Up Free
-          </Button>
+          {user ? (
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2">
+                <User className="h-5 w-5 text-gray-500" />
+                <span className="text-sm text-gray-700">{user.email}</span>
+              </div>
+              <Button variant="outline" size="sm" className="rounded-full" onClick={handleSignOut}>
+                Sign Out
+              </Button>
+            </div>
+          ) : (
+            <>
+              <Button variant="outline" size="sm" className="rounded-full" onClick={handleAuthClick}>
+                Log In
+              </Button>
+              <Button size="sm" className="rounded-full bg-dealfindr-blue hover:bg-dealfindr-blue-dark" onClick={handleAuthClick}>
+                Sign Up Free
+              </Button>
+            </>
+          )}
         </div>
 
         {/* Mobile menu button */}
@@ -89,12 +117,26 @@ const Navbar = () => {
                 <Globe className="h-4 w-4 text-gray-500 mr-2" />
                 <span className="text-sm text-gray-700">EN</span>
               </div>
-              <Button variant="outline" size="sm" className="rounded-full w-full">
-                Log In
-              </Button>
-              <Button size="sm" className="rounded-full w-full bg-dealfindr-blue hover:bg-dealfindr-blue-dark">
-                Sign Up Free
-              </Button>
+              {user ? (
+                <>
+                  <div className="flex items-center space-x-2 py-2">
+                    <User className="h-5 w-5 text-gray-500" />
+                    <span className="text-sm text-gray-700">{user.email}</span>
+                  </div>
+                  <Button variant="outline" size="sm" className="rounded-full w-full" onClick={handleSignOut}>
+                    Sign Out
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button variant="outline" size="sm" className="rounded-full w-full" onClick={handleAuthClick}>
+                    Log In
+                  </Button>
+                  <Button size="sm" className="rounded-full w-full bg-dealfindr-blue hover:bg-dealfindr-blue-dark" onClick={handleAuthClick}>
+                    Sign Up Free
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         </div>
