@@ -1,3 +1,4 @@
+
 import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Search, Bell, DollarSign } from 'lucide-react';
@@ -124,7 +125,7 @@ const Hero = () => {
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden p-6 card-shadow">
               <div className="mb-6 border-b pb-4">
                 <div className="flex items-center bg-gray-100 rounded-full p-2 mb-3">
-                  <Search className="h-5 w-5 text-gray-500 mx-2" />
+                  <Search className="h-5 w-5 text-dealfindr-blue mx-2" />
                   <input 
                     ref={searchInputRef}
                     type="text" 
