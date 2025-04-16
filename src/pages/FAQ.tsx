@@ -31,12 +31,12 @@ const faqItems = [
     answer: "Our browser extension is coming soon! Once available, you'll be able to download it from the Chrome Web Store, Firefox Add-ons, or other browser extension marketplaces. The extension will automatically show you better deals while you shop online and allow you to track prices with a single click."
   },
   {
-    question: "How does DealFindr use AI?",
+    question: "How does DPC use AI?",
     answer: "We use AI in several ways: to aggregate and analyze product information from multiple sources, to predict price trends based on historical data, to personalize deal recommendations based on your shopping preferences, and to improve product search results. Our AI continuously learns from user interactions to provide better shopping insights."
   },
   {
-    question: "Can I use DealFindr in my country?",
-    answer: "DealFindr is available worldwide, but our retailer coverage varies by country. We have the most comprehensive coverage in the United States, Canada, UK, UAE, Saudi Arabia, and major European countries. We're constantly expanding our global coverage to include more local and regional retailers."
+    question: "Can I use DPC in my country?",
+    answer: "DPC is available worldwide, but our retailer coverage varies by country. We have the most comprehensive coverage in the United States, Canada, UK, UAE, Saudi Arabia, and major European countries. We're constantly expanding our global coverage to include more local and regional retailers."
   },
   {
     question: "How do I delete my account?",
@@ -56,7 +56,7 @@ const FAQ = () => {
               Frequently Asked <span className="gradient-text">Questions</span>
             </h1>
             <p className="text-xl text-gray-700">
-              Find answers to the most common questions about DealFindr AI.
+              Find answers to the most common questions about Direct Price Comparison.
             </p>
           </div>
         </div>
