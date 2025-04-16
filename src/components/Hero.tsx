@@ -82,6 +82,11 @@ const Hero = () => {
     });
   };
 
+  const findCheapestPrice = (results: any[]) => {
+    if (!results) return null;
+    return Math.min(...results.map(item => item.price));
+  };
+
   return (
     <section className="bg-gradient-to-b from-white to-dealfindr-gray py-8 md:py-24">
       <div className="container mx-auto px-4">
@@ -120,54 +125,31 @@ const Hero = () => {
                 </div>
               </div>
               <div className="space-y-4">
-                  <div className="bg-dealfindr-gray rounded-lg p-4 border border-gray-200 hover-scale">
-                    <div className="flex justify-between">
-                      <div>
-                        <h3 className="font-medium">Shenzhen LCSC</h3>
-                        <p className="text-sm text-gray-500">Bulk Orders Available</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="font-bold text-dealfindr-green">
-                          {getCurrencySymbol(selectedCurrency)}{convertPrice(12.50, selectedCurrency)}/pc
-                        </p>
-                        <p className="text-xs text-gray-500">MOQ: 1000 pcs</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-dealfindr-gray rounded-lg p-4 border border-gray-200 hover-scale">
-                    <div className="flex justify-between">
-                      <div>
-                        <h3 className="font-medium">Yiwu Market</h3>
-                        <p className="text-sm text-gray-500">Direct Factory</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="font-bold">
-                          {getCurrencySymbol(selectedCurrency)}{convertPrice(11.80, selectedCurrency)}/pc
-                        </p>
-                        <p className="text-xs text-gray-500">MOQ: 5000 pcs</p>
+                {searchResults && searchResults.map((result) => {
+                  const isLowestPrice = result.price === findCheapestPrice(searchResults);
+                  return (
+                    <div key={result.id} className="bg-dealfindr-gray rounded-lg p-4 border border-gray-200 hover-scale">
+                      <div className="flex justify-between">
+                        <div>
+                          <h3 className="font-medium">{result.name}</h3>
+                          <p className="text-sm text-gray-500">{result.description}</p>
+                        </div>
+                        <div className="text-right">
+                          <p className={`font-bold ${isLowestPrice ? 'text-dealfindr-blue' : ''}`}>
+                            {getCurrencySymbol(selectedCurrency)}{convertPrice(result.price, selectedCurrency)}/pc
+                          </p>
+                          <p className="text-xs text-gray-500">MOQ: {result.moq}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="bg-dealfindr-gray rounded-lg p-4 border border-gray-200 hover-scale">
-                    <div className="flex justify-between">
-                      <div>
-                        <h3 className="font-medium">Guangzhou Trading</h3>
-                        <p className="text-sm text-gray-500">OEM Available</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="font-bold">
-                          {getCurrencySymbol(selectedCurrency)}{convertPrice(13.20, selectedCurrency)}/pc
-                        </p>
-                        <p className="text-xs text-gray-500">MOQ: 2000 pcs</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-6 flex justify-center">
-                  <Button variant="outline" className="text-sm text-dealfindr-blue border-dealfindr-blue rounded-full">
-                    View All 25 Manufacturers
-                  </Button>
-                </div>
+                  );
+                })}
+              </div>
+              <div className="mt-6 flex justify-center">
+                <Button variant="outline" className="text-sm text-dealfindr-blue border-dealfindr-blue rounded-full">
+                  View All 25 Manufacturers
+                </Button>
+              </div>
             </div>
             <div className="absolute -bottom-4 -right-4 bg-dealfindr-green text-white rounded-full px-4 py-2 text-sm font-medium animate-pulse-slow">
               Save up to 45% with direct factory prices
