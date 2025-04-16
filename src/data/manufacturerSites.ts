@@ -30,5 +30,20 @@ export const manufacturerSites: ManufacturerPrice[] = [
   // Fashion & Textiles
   { name: 'Zaful', url: 'https://www.zaful.com/search', category: 'Fashion' },
   { name: 'FashionTIY', url: 'https://www.fashiontiy.com/search', category: 'Fashion' },
-  { name: 'Wholesale7', url: 'https://www.wholesale7.net/search', category: 'Fashion' }
+  { name: 'Wholesale7', url: 'https://www.wholesale7.net/search', category: 'Fashion' },
+
+  // New Manufacturers
+  { name: 'Jeerong', url: 'https://jeerong.goldsupplier.com', category: 'Manufacturing' },
+  { name: 'MNA Case', url: 'https://mnacase.com', category: 'Manufacturing' },
+  { name: 'MBBag', url: 'https://mbbag.en.alibaba.com', category: 'Manufacturing' },
+  { name: 'Foxconn', url: 'https://www.foxconn.com/en-us', category: 'Electronics Manufacturing' },
+  { name: 'Pegatron', url: 'https://www.pegatroncorp.com', category: 'Electronics Manufacturing' },
+  { name: 'Wind Power', url: 'https://www.windpowercn.com', category: 'Energy Manufacturing' },
+  { name: 'Shenzhou International', url: 'https://www.shenzhouintl.com', category: 'Textile Manufacturing' },
+  { name: 'TAL Apparel', url: 'https://www.talapparel.com', category: 'Fashion Manufacturing' },
+  { name: 'Oppein Home', url: 'https://www.oppeinhome.com', category: 'Furniture Manufacturing' },
+  { name: 'KUKA Home', url: 'https://en.kukahome.com', category: 'Furniture Manufacturing' },
+  { name: 'Huali', url: 'https://www.zjhuali.com/en', category: 'Manufacturing' },
+  { name: 'YTT Global', url: 'https://yttgcl.goldsupplier.com', category: 'Manufacturing' }
 ];
+
