@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Facebook, 
@@ -9,8 +9,22 @@ import {
   Shield
 } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
+import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
 
 const Footer = () => {
+  const [cookieConsent, setCookieConsent] = useState(
+    localStorage.getItem('cookieConsent') === 'true'
+  );
+
+  const handleAcceptCookies = () => {
+    localStorage.setItem('cookieConsent', 'true');
+    setCookieConsent(true);
+    toast.success('Cookies have been accepted', {
+      description: 'We will use cookies to improve your experience.'
+    });
+  };
+
   return (
     <footer className="bg-gray-50 pt-16 pb-8">
       <div className="container mx-auto px-4">
@@ -133,21 +147,28 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t p-4 z-50">
-        <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
-          <p className="text-sm text-gray-700 mb-4 sm:mb-0 sm:mr-4">
-            We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.
-          </p>
-          <div className="flex space-x-3">
-            <button className="px-4 py-2 text-sm bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors">
-              Manage Preferences
-            </button>
-            <button className="px-4 py-2 text-sm bg-dealfindr-blue text-white rounded-md hover:bg-dealfindr-blue-dark transition-colors">
-              Accept All
-            </button>
+      {!cookieConsent && (
+        <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t p-4 z-50">
+          <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
+            <p className="text-sm text-gray-700 mb-4 sm:mb-0 sm:mr-4">
+              We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.
+            </p>
+            <div className="flex space-x-3">
+              <Button 
+                variant="outline"
+                onClick={() => setCookieConsent(true)}
+              >
+                Manage Preferences
+              </Button>
+              <Button 
+                onClick={handleAcceptCookies}
+              >
+                Accept All
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </footer>
   );
 };
