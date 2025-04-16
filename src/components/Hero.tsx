@@ -1,9 +1,9 @@
-
 import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Search, Bell, DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from "@/hooks/use-toast";
+import ManufacturerSearch from './ManufacturerSearch';
 
 const Hero = () => {
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
@@ -162,6 +162,9 @@ const Hero = () => {
                     </div>
                   );
                 })}
+              </div>
+              <div className="mt-8">
+                <ManufacturerSearch />
               </div>
               <div className="mt-6 flex justify-center">
                 <Button variant="outline" className="text-sm text-dealfindr-blue border-dealfindr-blue rounded-full">
