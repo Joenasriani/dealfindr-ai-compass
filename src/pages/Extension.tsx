@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Browser, Bell } from 'lucide-react';
+import { Globe, Bell } from 'lucide-react';
 
 const Extension = () => {
   return (
@@ -12,7 +12,7 @@ const Extension = () => {
       <div className="container mx-auto px-4 py-24">
         <div className="max-w-3xl mx-auto text-center">
           <div className="bg-dealfindr-blue-light rounded-full p-4 w-16 h-16 mx-auto mb-8 flex items-center justify-center">
-            <Browser className="h-8 w-8 text-dealfindr-blue" />
+            <Globe className="h-8 w-8 text-dealfindr-blue" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Browser Extension Coming Soon
