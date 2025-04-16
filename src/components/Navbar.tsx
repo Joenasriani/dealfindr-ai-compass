@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Globe, Search } from 'lucide-react';
+import { Menu, X, Globe, Search, DollarSign } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,7 +9,10 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <Link to="/" className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-3">
+          <div className="flex items-center justify-center bg-gradient-to-r from-[#ea384c] to-[#f05a5a] p-2 rounded-lg">
+            <DollarSign className="h-6 w-6 text-white" />
+          </div>
           <span className="text-2xl font-bold gradient-text">Compare Price Matrix</span>
         </Link>
 
