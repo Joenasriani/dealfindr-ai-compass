@@ -15,7 +15,7 @@ const Hero = () => {
             <Input 
               type="text" 
               placeholder="Search for any product, deal, or manufacturer..." 
-              className="flex-1 border-none text-xl md:text-2xl py-6 px-4 focus:ring-0" {/* Increased text size and padding */}
+              className="flex-1 border-none text-xl md:text-2xl py-6 px-4 focus:ring-0" /* Increased text size and padding */
             />
             <Button className="mr-2 rounded-full bg-dealfindr-blue hover:bg-dealfindr-blue-dark py-6 px-8 text-base"> {/* Larger button */}
               Search
