@@ -8,16 +8,16 @@ const Hero = () => {
   return (
     <section className="bg-gradient-to-b from-white to-dealfindr-gray py-16 md:py-24">
       <div className="container mx-auto px-4">
-        {/* Enhanced Search Bar */}
-        <div className="max-w-4xl mx-auto mb-12">
-          <div className="flex items-center bg-white rounded-full shadow-lg overflow-hidden">
-            <Search className="h-6 w-6 text-gray-500 ml-6 mr-4" />
+        {/* Enhanced Search Bar with Increased Size */}
+        <div className="max-w-5xl mx-auto mb-16"> {/* Increased max-width and margin bottom */}
+          <div className="flex items-center bg-white rounded-full shadow-xl overflow-hidden"> {/* Enhanced shadow */}
+            <Search className="h-8 w-8 text-gray-500 ml-8 mr-4" /> {/* Larger search icon */}
             <Input 
               type="text" 
               placeholder="Search for any product, deal, or manufacturer..." 
-              className="flex-1 border-none text-lg py-4 px-2 focus:ring-0"
+              className="flex-1 border-none text-xl md:text-2xl py-6 px-4 focus:ring-0" {/* Increased text size and padding */}
             />
-            <Button className="mr-2 rounded-full bg-dealfindr-blue hover:bg-dealfindr-blue-dark">
+            <Button className="mr-2 rounded-full bg-dealfindr-blue hover:bg-dealfindr-blue-dark py-6 px-8 text-base"> {/* Larger button */}
               Search
             </Button>
           </div>
