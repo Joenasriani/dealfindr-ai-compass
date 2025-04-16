@@ -1,9 +1,37 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Search, Bell } from 'lucide-react';
+import { Search, Bell, DollarSign } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 const Hero = () => {
+  const [selectedCurrency, setSelectedCurrency] = useState('CNY');
+
+  const convertPrice = (price: number, currency: string) => {
+    const rates = {
+      CNY: 1,
+      USD: 0.14,
+      AED: 0.51
+    };
+    return (price * rates[currency as keyof typeof rates]).toFixed(2);
+  };
+
+  const getCurrencySymbol = (currency: string) => {
+    const symbols = {
+      CNY: '¥',
+      USD: '$',
+      AED: 'د.إ'
+    };
+    return symbols[currency as keyof typeof symbols];
+  };
+
   return (
     <section className="bg-gradient-to-b from-white to-dealfindr-gray py-16 md:py-24">
       <div className="container mx-auto px-4">
@@ -15,6 +43,19 @@ const Hero = () => {
               placeholder="Search for any product, deal, or manufacturer..." 
               className="flex-1 border-none text-xl md:text-2xl py-6 px-4 focus:ring-0"
             />
+            <Select
+              value={selectedCurrency}
+              onValueChange={setSelectedCurrency}
+            >
+              <SelectTrigger className="w-[100px] border-none">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="CNY">¥ CNY</SelectItem>
+                <SelectItem value="USD">$ USD</SelectItem>
+                <SelectItem value="AED">د.إ AED</SelectItem>
+              </SelectContent>
+            </Select>
             <Button className="mr-2 rounded-full bg-dealfindr-blue hover:bg-dealfindr-blue-dark py-6 px-8 text-base">
               Search
             </Button>
@@ -63,7 +104,9 @@ const Hero = () => {
                       <p className="text-sm text-gray-500">Bulk Orders Available</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-bold text-dealfindr-green">¥12.50/pc</p>
+                      <p className="font-bold text-dealfindr-green">
+                        {getCurrencySymbol(selectedCurrency)}{convertPrice(12.50, selectedCurrency)}/pc
+                      </p>
                       <p className="text-xs text-gray-500">MOQ: 1000 pcs</p>
                     </div>
                   </div>
@@ -75,7 +118,9 @@ const Hero = () => {
                       <p className="text-sm text-gray-500">Direct Factory</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-bold">¥11.80/pc</p>
+                      <p className="font-bold">
+                        {getCurrencySymbol(selectedCurrency)}{convertPrice(11.80, selectedCurrency)}/pc
+                      </p>
                       <p className="text-xs text-gray-500">MOQ: 5000 pcs</p>
                     </div>
                   </div>
@@ -87,7 +132,9 @@ const Hero = () => {
                       <p className="text-sm text-gray-500">OEM Available</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-bold">¥13.20/pc</p>
+                      <p className="font-bold">
+                        {getCurrencySymbol(selectedCurrency)}{convertPrice(13.20, selectedCurrency)}/pc
+                      </p>
                       <p className="text-xs text-gray-500">MOQ: 2000 pcs</p>
                     </div>
                   </div>
