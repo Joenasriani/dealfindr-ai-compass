@@ -1,42 +1,42 @@
 # DealFindr AI Compass
 
-A React and TypeScript prototype for exploring product searches and comparisons across a predefined directory of retailers, wholesale platforms, and manufacturers.
+A React and TypeScript prototype for exploring how a product-search interface could compare manufacturer and retailer offers in one place.
 
-**Current status:** Demonstration prototype. Its product prices, conditions, and availability are simulated, not retrieved from live seller inventories or pricing APIs.
+**Current status:** Demonstration prototype. Search prices, product conditions, and availability are generated randomly; they are **not live seller data**.
 
 ## Implemented features
 
-- Search interface for products and a predefined retailer/manufacturer directory
-- Category filtering and price sorting for simulated results
-- Product-result cards with seller links
-- Supabase authentication integration and a dashboard for search history
-- Responsive site pages, including About, FAQ, contact, privacy, and informational sections
-- Browser-extension information page marked as coming soon
+- Search input and category filtering across a predefined manufacturer and retailer directory.
+- Simulated search results showing randomly generated prices, availability, and product conditions.
+- Result cards, price sorting, and links to external seller search pages.
+- Supabase authentication integration and an account dashboard with a search-history interface.
+- Responsive pages for product information and other site sections.
+
+## How search works
+
+`src/data/manufacturerSites.ts` defines the directory of sources. `src/hooks/useManufacturerSearch.ts` filters that list, waits for simulated request delays, and creates random prices and availability. The results are displayed through `SearchResultsTable.tsx`.
+
+The application does not connect to live seller pricing APIs or verify stock, merchant terms, taxes, shipping, or product authenticity.
+
+For signed-in users, search logging is attempted through Supabase. Its success depends on a correctly configured backend and database policies.
 
 ## Technology
 
-React 18, TypeScript, Vite, Tailwind CSS, shadcn/ui, React Router, TanStack Query, and Supabase.
-
-## Project structure
-
-- `src/hooks/useManufacturerSearch.ts`: Search state, randomized sample results, and an authenticated search-log attempt
-- `src/data/manufacturerSites.ts`: Predefined retailer and manufacturer entries
-- `src/components/manufacturer/`: Search input, category filters, and result presentation
-- `src/contexts/AuthContext.tsx`: Supabase authentication state
-- `src/pages/Dashboard.tsx`: Search-history UI backed by Supabase queries
-- `src/integrations/supabase/`: Generated Supabase client and types
-- `supabase/`: Supabase project configuration
+- React 18, TypeScript, Vite
+- Tailwind CSS and shadcn/ui
+- React Router and TanStack Query
+- Supabase client for authentication and search-history storage
 
 ## Run locally
 
-Requires Node.js and npm.
+Install Node.js and npm, then run:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Other available commands:
+Available project scripts:
 
 ```bash
 npm run build
@@ -44,21 +44,27 @@ npm run lint
 npm run preview
 ```
 
-The included Supabase client points to a configured project. Authentication and search-history persistence depend on that project's availability, permissions, and database schema.
+Supabase authentication and persistence require working backend configuration. This repository has an existing Supabase client setup; the remote backend was not independently tested during this documentation review.
 
-## Limitations
+## Project structure
 
-- **No live price aggregation:** The search hook generates random USD prices, availability, and item conditions. Displayed offers must not be interpreted as verified market data.
-- **Directory, not direct integration:** The predefined seller links do not establish working pricing APIs, inventory synchronization, or verified listings.
-- **Search history:** Supabase integration is present, but the corresponding database access and end-to-end persistence have not been verified in this review.
-- **Future functionality:** The browser extension is announced, not implemented in this repository. The newsletter form's successful subscription handling was not established during inspection.
-- **Production readiness:** No successful build, automated test run, deployment verification, or independent security review is claimed here.
+- `src/components/`: Search interface, result cards, page sections, and UI components.
+- `src/hooks/useManufacturerSearch.ts`: Simulated search logic and optional search logging.
+- `src/data/manufacturerSites.ts`: Predefined retailer and manufacturer URLs and categories.
+- `src/contexts/AuthContext.tsx`: Supabase authentication state.
+- `src/pages/`: Landing page, authentication, dashboard, and supporting pages.
+- `src/integrations/supabase/` and `supabase/`: Supabase client and configuration.
 
-## Licensing
+## Known limitations
 
-See [LICENSE](LICENSE) for the license covering the original repository code. Third-party packages and assets remain subject to their own licenses and attribution requirements.
+- Displayed prices and availability are **simulated** and must not be treated as actual offers.
+- Listed seller URLs are reference/search links, not verified matching product listings.
+- The newsletter signup form has no confirmed working subscription handler in the inspected component.
+- The browser-extension page says the extension is coming soon; an extension implementation was not verified.
+- Search-history retrieval and authentication require a functioning Supabase configuration.
+- No successful build, full automated test run, deployment check, or production security review is claimed.
 
----
+The next substantive development step would be replacing simulated results with permitted, verified merchant data integrations.
 
 Credit: Joe Nasr
 
